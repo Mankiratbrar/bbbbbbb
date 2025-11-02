@@ -231,11 +231,11 @@
 
     /* searchform */
     .search-form {
-        @apply max-w-3xl w-full min-h-[80px] bg-white border-[5px] border-black rounded-[80px] text-[24px] mt-8 px-5 flex flex-row items-center gap-5;
+        @apply max-w-3xl w-full min-h-[80px] bg-white transition-all duration-80 ease-in-out hover:border-[5px] hover:border-black rounded-[80px] text-[24px] mt-8 px-5 flex flex-row items-center gap-5;
     }
 
     .search-input {
-        @apply flex-1 font-bold placeholder:font-semibold placeholder:text-black-100 w-full h-auto outline-none;
+        @apply flex-1 font-bold placeholder:font-semibold placeholder:text-black-100 w-full h-auto outline-none ;
     }
 
     .search-btn {
@@ -319,7 +319,7 @@
 
 @theme {
   /* Colors */
-  --color-primary-100: #FFE8F0;
+  --color-primary-100: #06aabd;
   --color-primary: #0de4fc;
   --color-secondary: #FBE843;
   --color-black-100: #333333;

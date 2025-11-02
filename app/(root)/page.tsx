@@ -6,7 +6,7 @@ export default async function Home({searchParams}:{
 }) {
 
   const query = (await searchParams).query
-  const posts = [{_createdAt:'Yesterday',
+  const post = [{_createdAt:new Date(),
   title:'Startup Pitching',
   description:'Get Noticed',
   category:'Startup',
@@ -33,8 +33,8 @@ export default async function Home({searchParams}:{
           </p>
 
           <ul className="mt-7 card_grid">
-              {posts?.length>0?(
-                posts.map((post:StartUpCardType,index:number)=>(
+              {post?.length>0?(
+                post.map((post:StartUpCardType,index:number)=>(
                   <StartupCard key={post?._id} post={post}/>
                 ))
               ):(

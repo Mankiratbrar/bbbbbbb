@@ -14,7 +14,7 @@ const Navbar = async() => {
                     {session && session?.user?(
                         <>
                         <Link href={`/user/${session?.user?.name}`}>
-                            <Button>{session?.user?.name}</Button>
+                            <Button className='bg-primary-100'>{session?.user?.name}</Button>
                         </Link>
                         <Link href={"/startup/create"}>
                         <Button variant="outline">Create</Button>
