@@ -1,39 +1,39 @@
 import React from 'react'
 import Link from 'next/link';
 import { auth, signOut ,signIn} from '@/auth';
+import { Button } from "@/components/ui/button"
+import {Logo} from '@/components/logo';
 const Navbar = async() => {
     const session =await auth()
     return (<>
         <header className='px-5 py-3 bg-white shadow-sm font-work-sans'>
             <nav className='flex justify-between items-center flex-column'>
-                <Link href="/">
-                <img src="logo.png" alt="logo" width={100} height={1}/>
-                </Link>
+                <Logo />
 
-                <div className='flex items-center gap-5 text-black'>
+                <div className='gap-5 text-black flex'>
                     {session && session?.user?(
                         <>
-                        <Link href={"/startup/create"}>
-                        <span>Create</span>
+                        <Link href={`/user/${session?.user?.name}`}>
+                            <Button>{session?.user?.name}</Button>
                         </Link>
-
+                        <Link href={"/startup/create"}>
+                        <Button variant="outline">Create</Button>
+                        </Link>
                         <form action={async()=>{
                             "use server"
                             await signOut({redirectTo:"/"})}}>
-                            <button type='submit' className='hover:cursor-pointer'>Logout</button>
+                            <Button variant="outline" type='submit' className='hover:cursor-pointer bg-red-400'>Logout</Button>
                             </form>
+
                         
-                        <Link href={`/user/${session?.id}`}>
-                            <span>{session?.user?.name}</span>
-                        </Link>
                         </>
                     ):(
                         <form action={async()=> {
                             "use server";
                             await signIn('github')}}>
-                                <button type='submit' className='hover:cursor-pointer'  >
+                                <Button variant="outline" type='submit' className='hover:cursor-pointer bg-blue-400'  >
                                     Login
-                                </button>
+                                </Button>
                             </form>
                     )}
                 </div>
